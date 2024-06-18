@@ -16,6 +16,7 @@ if vim.g.neovide then
 
   vim.g.neovide_transparency = 1
   vim.g.transparency = 0
+  vim.g.neovide_window_blurred = false
 
   vim.opt.linespace = 0
 end
