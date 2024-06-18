@@ -46,4 +46,12 @@ return {
       end, { desc = "Lint file" })
     end,
   },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        swift = { "swiftformat" },
+      },
+    },
+  },
 }
