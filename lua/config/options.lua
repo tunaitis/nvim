@@ -18,5 +18,7 @@ if vim.g.neovide then
   vim.g.transparency = 0
   vim.g.neovide_window_blurred = false
 
+  vim.g.neovide_scroll_animation_length = 0.1
+
   vim.opt.linespace = 0
 end
