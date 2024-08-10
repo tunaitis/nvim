@@ -21,7 +21,8 @@ return {
         sourcekit = {
           keys = {
             { "<leader>xr", "<cmd>XcodebuildBuildRun<CR>", desc = "Xcode Run" },
-            { "<leader>xd", "<cmd>XcodeDebug<CR>", desc = "Xcode Debug" },
+            { "<leader>xd", "<cmd>XcodebuildDebug<CR>", desc = "Xcode Debug" },
+            { "<leader>xD", "<cmd>XcodebuildDebugTerminate<CR>", desc = "Xcode Stop Debug" },
           },
         },
       },
@@ -71,10 +72,14 @@ return {
 
       xcodebuild.setup(codelldbPath)
 
-      vim.api.nvim_create_user_command("XcodeDebug", function()
+      vim.api.nvim_create_user_command("XcodebuildDebug", function()
         require("dap").disconnect()
         -- require("dapui").close()
         require("xcodebuild.integrations.dap").build_and_debug()
+      end, {})
+
+      vim.api.nvim_create_user_command("XcodebuildDebugTerminate", function()
+        require("dap").disconnect()
       end, {})
 
       --lvim.keys.normal_mode["xr"] = {":XcodebuildBuildRun <cr>", {desc = "Xcode Build & Debug" }}
